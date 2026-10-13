@@ -1,0 +1,7 @@
+[user]
+	name = lukmccall
+	email = kosmatylukasz@gmail.com
+
+# Settings for this machine only (for example a work email). Git skips this file if it does not exist.
+[include]
+	path = ~/.gitconfig.local

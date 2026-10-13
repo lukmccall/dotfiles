@@ -1,0 +1,85 @@
+# Ghostty config, migrated from Warp (~/.warp/settings.toml + Warp defaults).
+# Reload: Cmd+Shift+,   Open this file: Cmd+,
+# All options: ghostty +show-config --default --docs
+
+# --- Look ------------------------------------------------------------------
+
+# Warp "Dark" theme (see ./themes/warp-dark)
+theme = warp-dark
+
+# Warp: FiraCode Nerd Font Mono, 13pt
+font-family = FiraCode Nerd Font Mono
+font-size = 13
+
+# FiraCode ligatures (=> != ===) are on (Ghostty default).
+# To turn them off, add: font-feature = -calt, font-feature = -liga, font-feature = -dlig
+
+# Warp line height is 1.2x. If text feels cramped compared to Warp, try this:
+# adjust-cell-height = 10%
+
+# Warp: blinking bar cursor
+cursor-style = bar
+cursor-style-blink = true
+
+# Warp shows tabs inside the title bar
+macos-titlebar-style = tabs
+
+# Warp: "Dim inactive panes" is off (Ghostty dims to 0.7 by default)
+unfocused-split-opacity = 0.7
+
+# Line between splits: a quiet gray that is still visible on the #050505 background.
+# There is no option for the line width, only the color.
+split-divider-color = #3a3a3a
+
+# Warp-like space under the prompt: top,bottom in points (Ghostty default: 2)
+window-padding-y = 2,12
+
+# --- Behavior --------------------------------------------------------------
+
+# Warp: "Restore windows, tabs, and panes on startup"
+window-save-state = always
+
+# Warp: copy on select goes to the system clipboard
+copy-on-select = clipboard
+
+# Warp: OSC 52 clipboard access = write only
+clipboard-read = deny
+clipboard-write = allow
+
+# Make `ssh` work on hosts that do not know TERM=xterm-ghostty
+shell-integration-features = ssh-env,ssh-terminfo
+
+# Warp "long running command" notifications are off. Set to `unfocused`
+# to get a notification when a command finishes in a background tab.
+# notify-on-command-finish = unfocused
+# notify-on-command-finish-after = 30s
+
+# --- Keys ------------------------------------------------------------------
+# Most Warp shortcuts already match Ghostty defaults:
+#   Cmd+D / Cmd+Shift+D       split right / down
+#   Cmd+[ / Cmd+]             previous / next pane
+#   Cmd+Opt+Arrows            focus pane in direction
+#   Cmd+Ctrl+Arrows           resize pane
+#   Cmd+Shift+Enter           maximize (zoom) pane
+#   Cmd+Shift+[ / ]           previous / next tab
+#   Cmd+K                     clear screen
+#   Cmd+F                     find
+#   Cmd+Up / Cmd+Down         jump to previous / next prompt (like Warp blocks)
+#   Opt+Left / Opt+Right      word left / right
+#   Cmd+Left / Cmd+Right      start / end of line
+#   Cmd+Backspace             delete line
+
+# Warp: Cmd+P opens the command palette (Ghostty default is Cmd+Shift+P)
+keybind = super+p=toggle_command_palette
+
+# Warp: Opt+Backspace deletes the previous word
+keybind = alt+backspace=text:\x1b\x7f
+
+# Warp: Shift+Enter inserts a new line instead of running the command.
+# Sends Alt+Enter (ESC + CR). zsh binds that to `self-insert-unmeta`, which
+# inserts a newline. Claude Code also reads Alt+Enter as a newline.
+keybind = shift+enter=text:\x1b\r
+
+# Optional: Quake-style drop-down terminal from any app (Warp "hotkey window").
+# Needs Accessibility permission for Ghostty in System Settings.
+# keybind = global:super+grave_accent=toggle_quick_terminal

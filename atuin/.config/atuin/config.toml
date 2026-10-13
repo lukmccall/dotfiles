@@ -1,0 +1,8 @@
+# atuin config: only the settings that are not the default.
+# All options: https://docs.atuin.sh/configuration/config/
+
+# Use the alternate screen. The Ghostty prompt-at-bottom setup (~/.config/zsh/ghostty.zsh) needs this.
+inline_height = 0
+
+# Enter runs the selected command. Tab puts it on the command line to edit.
+enter_accept = true

@@ -1,0 +1,28 @@
+# Warp built-in "Dark" theme, ported to Ghostty.
+# Source: warpdotdev/warp app/src/themes/default_themes.rs (dark_theme, DARK_MODE_*_COLORS)
+
+background = #050505
+foreground = #ffffff
+
+# Warp has no explicit cursor color for "Dark", so it uses the accent color.
+cursor-color = #19aad8
+
+# Normal colors
+palette = 0=#616161
+palette = 1=#ff8272
+palette = 2=#b4fa72
+palette = 3=#fefdc2
+palette = 4=#a5d5fe
+palette = 5=#ff8ffd
+palette = 6=#d0d1fe
+palette = 7=#f1f1f1
+
+# Bright colors
+palette = 8=#8e8e8e
+palette = 9=#ffc4bd
+palette = 10=#d6fcb9
+palette = 11=#fefdd5
+palette = 12=#c1e3fe
+palette = 13=#ffb1fe
+palette = 14=#e5e6fe
+palette = 15=#feffff

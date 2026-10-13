@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Turn off audio input and output in all Android emulators (AVDs).
+set -euo pipefail
+
+avd_home=${ANDROID_AVD_HOME:-$HOME/.android/avd}
+[[ -d $avd_home ]] || { echo "No AVD folder: $avd_home" >&2; exit 1; }
+
+find "$avd_home" -name config.ini -print0 | while IFS= read -r -d '' config; do
+  tmp=$(mktemp)
+  grep -v audio "$config" > "$tmp" || true
+  printf 'hw.audioInput = no\nhw.audioOutput = no\n' >> "$tmp"
+  cat "$tmp" > "$config"   # keep the file and its permissions
+  rm "$tmp"
+  echo "Muted: $config"
+done
